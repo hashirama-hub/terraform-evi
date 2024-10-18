@@ -10,6 +10,7 @@ resource "aws_security_group" "sg_ec2_nat" {
         security_groups = [ aws_security_group.Allow_IP_BAP.id ]
         description = "Allow IP From BAP"
     }
+    #Test Internet From Private Subnet throught EC2 NAT
     # ingress {
     #     from_port = "8"
     #     to_port = "8"
@@ -74,17 +75,17 @@ resource "aws_security_group" "EVI_sg_alb" {
     vpc_id = aws_vpc.evi-prod.id
 
     ingress {
-        from_port = 0
-        to_port = 0
-        protocol = "-1"
-        cidr_blocks = "0.0.0.0/0"
+        from_port = 433
+        to_port = 433
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
     egress {
         from_port = 0
         to_port = 0
         protocol = "-1"
-        cidr_blocks = "0.0.0.0/0"
+        cidr_blocks = ["0.0.0.0/0"]
     }
 
   

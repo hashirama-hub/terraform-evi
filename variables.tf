@@ -19,3 +19,8 @@ variable "bap-ip-2" {
 variable "bap-ip-3" {
     default = "113.160.247.219/32"
 }
+
+variable "task_count" {
+    default = 2
+  
+}
